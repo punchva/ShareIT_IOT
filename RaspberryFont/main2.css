@@ -1,0 +1,26 @@
+.full-height-left {
+    height: 100vh;
+    min-height: 100vh;
+    background-color: pink; /* For browsers that do not support gradients */
+    background-image: linear-gradient(
+      pink,
+      white,
+      pink
+    ); /* Standard syntax (must be last) */
+  }
+
+  .full-height-right {
+    height: 100vh;
+    min-height: 100vh;
+    background-color: pink; /* For browsers that do not support gradients */
+    background-image: linear-gradient(
+      pink,
+      white,
+      pink
+    ); /* Standard syntax (must be last) */
+  }
+
+  .container {
+    padding: 16px;
+  }
+  

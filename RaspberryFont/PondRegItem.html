@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Item Confirmation</title>
+        
+        <link rel="stylesheet" type="text/css" href="iot.css"> <!--need thsi to connect html with css-->
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+        <script src="iot.js"></script> <!--need this to connect html with js-->
+        <p id="title1">Item Confirmation</p>
+        <div class="gridLayout">
+          <div>
+        <form action="sessionSummary.html">
+            <p id="miniTitle1">Register Mannually</p>
+            <fieldset>
+                <legend>Lender's Item:</legend>
+                Item Name:<br>
+                <input type="text" name="itemName" value="">
+                <br>
+                Lender name:<br>
+                <input type="text" name="lenderName" value="">
+                </fieldset>
+                <br><br>
+            <input type="submit" value="Confirm">
+          </form> 
+        </div>
+
+        <div id="qrBorder">
+          <p id="miniTitle2">Register with QR COde</p>
+          
+          <div id="container">
+                <video autoplay="true" id="videoElement">
+                
+                </video>
+            </div>
+            <script>
+                    var video = document.querySelector("#videoElement");
+                
+                if (navigator.mediaDevices.getUserMedia) {
+                  navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                      video.srcObject = stream;
+                    })
+                    .catch(function (err0r) {
+                      console.log("Something went wrong!");
+                    });
+                }
+                </script>
+                <br>
+                <button id="snap" onclick="captureFunction()">Capture</button>
+                <br>
+                <canvas id="canvas" width="640" height="480"></canvas>
+        
+                <script> //Button can capture the picture
+                     var canvas = document.getElementById('canvas');
+                     var context = canvas.getContext('2d');
+                     var video = document.getElementById('videoElement');
+                     function captureFunction(){
+                        document.getElementById("snap").addEventListener("click", function() {
+                        context.drawImage(video, 0, 0, 640, 480);
+                        });
+                     }
+                </script>
+                </div>
+           </div>
+    </body>
+</html>
